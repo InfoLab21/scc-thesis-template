@@ -1,7 +1,7 @@
 #!/bin/bash
 
 pdflatex -shell-escape -output-directory=./output_directory main.tex
-biber -V main
+biber -V --output-directory ./output_directory main
 pdflatex -shell-escape -output-directory=./output_directory main.tex
 pdflatex -shell-escape -output-directory=./output_directory main.tex
 cp ./output_directory/main.pdf .
