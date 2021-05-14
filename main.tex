@@ -31,7 +31,7 @@
 % If you have any useful updates for this template, which you think will benefit others, please make these available via github (https://github.com/InfoLab21/scc-thesis-template).
 
 
-\documentclass[oneside,12pt]{report}
+\documentclass[twoside,12pt, a4paper]{report}
 \usepackage[paper=a4paper]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
@@ -80,7 +80,7 @@
 \newcommand\authorname{First (Middle) Last name} % Full name
 \newcommand\authordegrees{BSc (Hons), MRes} % This does not have to be filled in, but the regulations state that you should include any degrees you have.
 
-\newgeometry{left=38mm, right=25mm, top=25mm, bottom=25mm, includeheadfoot} % This has to come before the header and footer information
+\newgeometry{left=38mm, right=25mm, top=25mm, bottom=25mm, asymmetric, includeheadfoot} % This has to come before the header and footer information
 
 % HEADER AND FOOTER STYLE
 % https://en.wikibooks.org/wiki/LaTeX/Customizing_Page_Headers_and_Footers
@@ -100,8 +100,8 @@
   \fancyhf{}
   %\fancyhead[R]{\thepage}
   \fancyfoot[C]{\thepage}
-  \fancyhead[L]{\textit{ \nouppercase{\leftmark}} }
-  \fancyhead[R]{\textit{ \nouppercase{\rightmark}} }
+  \fancyhead[LE]{\textit{ \nouppercase{\leftmark}} }
+  \fancyhead[RO]{\textit{ \nouppercase{\rightmark}} }
   \renewcommand{\headrulewidth}{1pt} % remove lines as well
   \renewcommand{\footrulewidth}{0pt}
 }

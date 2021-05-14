@@ -37,11 +37,35 @@ The [docker-compile.sh](./docker-compile.sh) file starts the `scc-lancaster/tex-
 
 ## Change Log
 
-This describes the differences between the main branch and this dev branch.
+This describes the differences between the main branch and this dev branch. **All of the changes made here will not be in the overleaf version.**
 
 ### Main.tex
 
 The differences in the [main.tex](./main.tex) file.
+
+Explicitly states A4 paper and changed to two sided for reason below about headers:
+
+``` latex
+\documentclass[twoside,12pt, a4paper]{report}
+```
+
+Changed the header and footer so that on odd pages it shows the section title and on even pages it shows the chapter title in the header. In doing so needed to change to two sided and change the geometry command to use asymmetric so that the left margin is always 38mm, basically converting two sided back to one sided with respect to margins.  
+
+``` latex
+\newgeometry{left=38mm, right=25mm, top=25mm, bottom=25mm, asymmetric, includeheadfoot}
+
+\fancyhead[LE]{\textit{ \nouppercase{\leftmark}} }
+\fancyhead[RO]{\textit{ \nouppercase{\rightmark}} }
+```
+
+Changed the [chapters/introduction.tex](./chapters/introduction.tex) file so that it demonstrates the header change. Change made to that file is the following, first line section title is now this:
+``` latex
+\section{Example of a very long section title that can cause problems for the header if the header does not wrap section titles}
+``` 
+
+### Main.pdf
+
+Added the example PDF ([main.pdf](./main.pdf)) that should be created when you compile the template.
 
 ### Docker files
 
