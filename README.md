@@ -9,7 +9,7 @@ Heavily based on the formatting and content of:
 - [Andrew Moore's thesis](https://scholar.google.co.uk/citations?user=mJRN_SIAAAAJ&hl=en).
 - Also, somewhat based on the [Cambridge thesis template](https://github.com/kks32/phd-thesis-template).
 
-Conforms with Lancaster University [Manual of Academic Regulations and Procedures (MARP) 2019-20 for Postgraduate Research](https://www.lancaster.ac.uk/media/lancaster-university/content-assets/documents/student-based-services/asq/marp/PGR-Regs.pdf). For layout information the most relevant pages of that document are pages 30 and 31 (Appendix 2).
+Conforms with Lancaster University [Manual of Academic Regulations and Procedures (MARP) 2020-21 for Postgraduate Research](https://www.lancaster.ac.uk/media/lancaster-university/content-assets/documents/student-based-services/asq/marp/PGR-Regs.pdf). For layout information the most relevant pages of that document are pages 30 and 31 (Appendix 2).
 
 Please check that your thesis complies with the current regulations. If not available from the above link, details will be on the [SCC PGR Moodle space](https://modules.lancaster.ac.uk/course/view.php?id=22985).
 
