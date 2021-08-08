@@ -35,6 +35,28 @@ The [docker-compile.sh](./docker-compile.sh) file starts the `scc-lancaster/tex-
 2. The [microtype package](https://ctan.org/pkg/microtype?lang=en) (\usepackage{microtype}) helps with removing some overfull or underfull box warnings.
 3. This current template discourages hyphenated words at end of lines through `\hyphenpenalty=5000 \tolerance=1000` which are on [lines 48 and 50 of main.tex](https://github.com/InfoLab21/scc-thesis-template/blob/master/main.tex#L48-L50). This was done to make the thesis easier to read.
 
+### Specifying a date rather than \today
+When submitting your thesis you may want to specify the date you submitted it for your viva rather than the date you submit it to pure/after corrections. To do so you can create a submission date like so, this example will show a submission date of July 2020:
+
+```latex
+\newdate{submissiondate}{01}{07}{2020}
+```
+
+This should go underneath in [./main.tex](./main.tex)
+
+``` latex
+\usepackage{datetime}
+\newdateformat{monthyeardate}{%
+  \monthname[\THEMONTH], \THEYEAR}
+% \newdate{submissiondate}{01}{07}{2020}
+```
+
+Then we need to change the `\today` date in [./title_page.tex](./title_page.tex) and [./abstract.tex](./abstract.tex) to:
+
+```
+\monthyeardate{\displaydate{submissiondate}}
+```
+
 ## Change Log
 
 This describes the differences between the main branch and this dev branch. **All of the changes made here will not be in the overleaf version.**
@@ -43,13 +65,15 @@ This describes the differences between the main branch and this dev branch. **Al
 
 The differences in the [main.tex](./main.tex) file.
 
+#### Headers
+
 Explicitly states A4 paper and changed to two sided for reason below about headers:
 
 ``` latex
 \documentclass[twoside,12pt, a4paper]{report}
 ```
 
-Changed the header and footer so that on odd pages it shows the section title and on even pages it shows the chapter title in the header. In doing so needed to change to two sided and change the geometry command to use asymmetric so that the left margin is always 38mm, basically converting two sided back to one sided with respect to margins.  
+Changed the header and footer so that on odd pages it shows the section title and on even pages it shows the chapter title in the header. In doing so needed to change to two sided and change the geometry command to use asymmetric so that the left margin is always 38mm, basically converting two sided back to one sided with respect to margins. **Note** you could have both headers in the center instead of one on the left and one on the right by changing the `LE` and `R0` to `CE` and `CO`.
 
 ``` latex
 \newgeometry{left=38mm, right=25mm, top=25mm, bottom=25mm, asymmetric, includeheadfoot}
@@ -63,9 +87,19 @@ Changed the [chapters/introduction.tex](./chapters/introduction.tex) file so tha
 \section{Example of a very long section title that can cause problems for the header if the header does not wrap section titles}
 ``` 
 
+This was done as in the main branch we had two headers, one on the left and one on the right, in doing so if we had a longer header on the right it would not wrap and the two headers would merge into one and therefore become unreadable. Hence why the solution above has been used.
+
 ### Main.pdf
 
 Added the example PDF ([main.pdf](./main.pdf)) that should be created when you compile the template.
+
+### Abstract.tex
+
+Added a full stop after the date, the last full stop in the following code:
+
+``` latex
+A thesis submitted for the degree of \textit{Doctor of Philosophy}. \monthyeardate\today.
+```
 
 ### Docker files
 
