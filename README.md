@@ -89,6 +89,8 @@ Changed the [chapters/introduction.tex](./chapters/introduction.tex) file so tha
 
 This was done as in the main branch we had two headers, one on the left and one on the right, in doing so if we had a longer header on the right it would not wrap and the two headers would merge into one and therefore become unreadable. Hence why the solution above has been used.
 
+**NOTE** That if you have a header that is a multi line header it may require you to change the `\setlength{\headheight}` within [./main.tex](./main.tex), for more information see the comments within [./main.tex](./main.tex) under the title of `HEADER AND FOOTER STYLE`.
+
 ### Main.pdf
 
 Added the example PDF ([main.pdf](./main.pdf)) that should be created when you compile the template.
@@ -99,6 +101,27 @@ Added a full stop after the date, the last full stop in the following code:
 
 ``` latex
 A thesis submitted for the degree of \textit{Doctor of Philosophy}. \monthyeardate\today.
+```
+
+### Publication.tex and Main.tex, highlighting your own name in the list of publications.
+
+To highlight your own name in the list of publications we have added a macro called `boldnames` which has been defined in [./main.tex](./main.tex). This macro is then used within [./publications.tex](./publications.tex) to ensure that your name is in bold when stating the publications that you have published. You need to change the following within [./publications.tex](./publications.tex), so that you list the different ways your name is written within the cited bibliography/bib entires:
+
+``` latex
+\forcsvlist{\listadd\boldnames} % Makes the name Andrew Moore bold.
+  {{Moore, Andrew}, {Andrew, Moore}}
+```
+
+Further to ensure that your name is then not in bold for the references afterwards you need to keep the following:
+
+``` latex
+\renewcommand*{\boldnames}{}
+```
+
+Additionally to ensure that all of your authors are listed in these entries, rather the first two or three author names, and not for any reference section afterwards, we added the following command before each citation in the [publications section](./publications.tex):
+
+```
+\AtNextCitekey{\defcounter{maxnames}{99}}
 ```
 
 ### Docker files
