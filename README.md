@@ -34,6 +34,12 @@ The [docker-compile.sh](./docker-compile.sh) file starts the `scc-lancaster/tex-
 1. Some tips to speed up latex compiling by [overleaf](https://www.overleaf.com/learn/how-to/Why_do_I_keep_getting_the_compile_timeout_error_message%3F) (NOTE some of these tips are overleaf specific), the top tip is to not use image formats like PNG or JPEG but rather PDFs (PDF's also render and scale better).
 2. The [microtype package](https://ctan.org/pkg/microtype?lang=en) (\usepackage{microtype}) helps with removing some overfull or underfull box warnings.
 3. This current template discourages hyphenated words at end of lines through `\hyphenpenalty=5000 \tolerance=1000` which are on [lines 48 and 50 of main.tex](https://github.com/InfoLab21/scc-thesis-template/blob/master/main.tex#L48-L50). This was done to make the thesis easier to read.
+4. If you have a header that is a multi line header it may require you to change the `\setlength{\headheight}` within [./main.tex](./main.tex), for more information see the comments within [./main.tex](./main.tex) under the title of `HEADER AND FOOTER STYLE`.
+5. You could have both headers in the center instead of one on the left and one on the right by changing the `LE` and `R0` to `CE` and `CO`, in the following code that is within [./main.tex](./main.tex):
+``` latex
+\fancyhead[LE]{\textit{ \nouppercase{\leftmark}} }
+\fancyhead[RO]{\textit{ \nouppercase{\rightmark}} }
+```
 
 ### Specifying a date rather than \today
 When submitting your thesis you may want to specify the date you submitted it for your viva rather than the date you submit it to pure/after corrections. To do so you can create a submission date like so, this example will show a submission date of July 2020:
