@@ -31,7 +31,7 @@
 % If you have any useful updates for this template, which you think will benefit others, please make these available via github (https://github.com/InfoLab21/scc-thesis-template).
 
 
-\documentclass[oneside,12pt]{report}
+\documentclass[twoside,12pt, a4paper]{report}
 \usepackage[paper=a4paper]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
@@ -80,12 +80,18 @@
 \newcommand\authorname{First (Middle) Last name} % Full name
 \newcommand\authordegrees{BSc (Hons), MRes} % This does not have to be filled in, but the regulations state that you should include any degrees you have.
 
-\newgeometry{left=38mm, right=25mm, top=25mm, bottom=25mm, includeheadfoot} % This has to come before the header and footer information
+\newgeometry{left=38mm, right=25mm, top=25mm, bottom=25mm, asymmetric, includeheadfoot} % This has to come before the header and footer information
 
 % HEADER AND FOOTER STYLE
 % https://en.wikibooks.org/wiki/LaTeX/Customizing_Page_Headers_and_Footers
 \usepackage{fancyhdr}
-\setlength{\headheight}{15pt}
+% This needs to be smaller or larger depending on your largest header, at the moment we have set it to 15
+% even though it states a warning in the latex, as your largest header is most likely 
+% not to be a multiline header, but remember this may changed so checks the latex 
+% warning for:
+% (fancyhdr)                \setlength{\headheight}
+% Where it will tell you what to change this too.
+\setlength{\headheight}{15pt} 
 % For preamble
 \fancypagestyle{preamble}{ %
   \fancyhf{} % remove everything
@@ -100,8 +106,8 @@
   \fancyhf{}
   %\fancyhead[R]{\thepage}
   \fancyfoot[C]{\thepage}
-  \fancyhead[L]{\textit{ \nouppercase{\leftmark}} }
-  \fancyhead[R]{\textit{ \nouppercase{\rightmark}} }
+  \fancyhead[LE]{\textit{ \nouppercase{\leftmark}} }
+  \fancyhead[RO]{\textit{ \nouppercase{\rightmark}} }
   \renewcommand{\headrulewidth}{1pt} % remove lines as well
   \renewcommand{\footrulewidth}{0pt}
 }
@@ -113,6 +119,25 @@
   \renewcommand{\headrulewidth}{0pt} % remove lines as well
   \renewcommand{\footrulewidth}{0pt}
 }
+
+% Highlighting your own name in the publication.tex section
+\usepackage{xpatch}% or use http://tex.stackexchange.com/a/40705
+\makeatletter
+\newbibmacro*{name:bold}[2]{%
+  \edef\blx@tmp@name{\expandonce#1, \expandonce#2}%
+  \def\do##1{\ifdefstring{\blx@tmp@name}{##1}{\bfseries\listbreak}{}}%
+  \dolistloop{\boldnames}}
+\newcommand*{\boldnames}{}
+\makeatother
+\xpretobibmacro{name:family}{\begingroup\usebibmacro{name:bold}{#1}{#2}}{}{}
+\xpretobibmacro{name:given-family}{\begingroup\usebibmacro{name:bold}{#1}{#2}}{}{}
+\xpretobibmacro{name:family-given}{\begingroup\usebibmacro{name:bold}{#1}{#2}}{}{}
+\xpretobibmacro{name:delim}{\begingroup\normalfont}{}{}
+
+\xapptobibmacro{name:family}{\endgroup}{}{}
+\xapptobibmacro{name:given-family}{\endgroup}{}{}
+\xapptobibmacro{name:family-given}{\endgroup}{}{}
+\xapptobibmacro{name:delim}{\endgroup}{}{}
 
 \usepackage{lipsum} % just to add random text as an example
 

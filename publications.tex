@@ -1,3 +1,7 @@
+% reference: https://gist.github.com/michaelplews/8667a11762c2406ae0ae49ffb49b54c6
+\forcsvlist{\listadd\boldnames} % Makes the name Andrew Moore bold.
+  {{Moore, Andrew}, {Andrew, Moore}}
+
 \section*{\centering Publications}
 (This is an example taken from Andrew Moore's thesis, adapt this to suit your own thesis.)
 
@@ -7,14 +11,22 @@
 
 Only one publication, shown below, has been created directly from the thesis, from which large portions of this published work is used within chapter 3:\bigskip
 
+\AtNextCitekey{\defcounter{maxnames}{99}} % Ensures that all authors are displayed rather than the first 2 or 3.
 \noindent \fullcite{moore-rayson-2018-bringing}\vspace{24pt}
 
+\AtNextCitekey{\defcounter{maxnames}{99}}
 \noindent The following publication have been generated while developing this thesis, and to an extent has guided the thesis into what it has become:\bigskip
 
+\AtNextCitekey{\defcounter{maxnames}{99}}
 \noindent \fullcite{moss-etal-2019-fiesta}\bigskip
 
+\AtNextCitekey{\defcounter{maxnames}{99}}
 \noindent \fullcite{moore-rayson-2017-lancaster}\bigskip
 
+\AtNextCitekey{\defcounter{maxnames}{99}}
 \noindent \fullcite{el-haj-etal-2016-learning}\bigskip
 
+\AtNextCitekey{\defcounter{maxnames}{99}}
 \noindent \fullcite{moore2016domain}
+
+\renewcommand*{\boldnames}{} % Ensures that if you cite yourself then your name is not bold in the bibliography section.
