@@ -89,11 +89,6 @@ Changed the header and footer so that on odd pages it shows the section title an
 \fancyhead[RO]{\textit{ \nouppercase{\rightmark}} }
 ```
 
-Changed the [chapters/introduction.tex](./chapters/introduction.tex) file so that it demonstrates the header change. Change made to that file is the following, first line section title is now this:
-``` latex
-\section{Example of a very long section title that can cause problems for the header if the header does not wrap section titles}
-``` 
-
 This was done as in the main branch we had two headers, one on the left and one on the right, in doing so if we had a longer header on the right it would not wrap and the two headers would merge into one and therefore become unreadable. Hence why the solution above has been used.
 
 **NOTE** That if you have a header that is a multi line header it may require you to change the `\setlength{\headheight}` within [./main.tex](./main.tex), for more information see the comments within [./main.tex](./main.tex) under the title of `HEADER AND FOOTER STYLE`.
