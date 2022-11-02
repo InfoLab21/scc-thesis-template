@@ -64,68 +64,6 @@ Then we need to change the `\today` date in [./title_page.tex](./title_page.tex)
 \monthyeardate{\displaydate{submissiondate}}
 ```
 
-## Change Log
-
-This describes the differences between the main branch and this dev branch. **All of the changes made here will not be in the overleaf version.**
-
-### Main.tex
-
-The differences in the [main.tex](./main.tex) file.
-
-#### Headers
-
-Explicitly states A4 paper and changed to two sided for reason below about headers:
-
-``` latex
-\documentclass[twoside,12pt, a4paper]{report}
-```
-
-Changed the header and footer so that on odd pages it shows the section title and on even pages it shows the chapter title in the header. In doing so needed to change to two sided and change the geometry command to use asymmetric so that the left margin is always 38mm, basically converting two sided back to one sided with respect to margins. **Note** you could have both headers in the center instead of one on the left and one on the right by changing the `LE` and `R0` to `CE` and `CO`.
-
-``` latex
-\newgeometry{left=38mm, right=25mm, top=25mm, bottom=25mm, asymmetric, includeheadfoot}
-
-\fancyhead[LE]{\textit{ \nouppercase{\leftmark}} }
-\fancyhead[RO]{\textit{ \nouppercase{\rightmark}} }
-```
-
-This was done as in the main branch we had two headers, one on the left and one on the right, in doing so if we had a longer header on the right it would not wrap and the two headers would merge into one and therefore become unreadable. Hence why the solution above has been used.
-
-**NOTE** That if you have a header that is a multi line header it may require you to change the `\setlength{\headheight}` within [./main.tex](./main.tex), for more information see the comments within [./main.tex](./main.tex) under the title of `HEADER AND FOOTER STYLE`.
-
-### Main.pdf
-
-Added the example PDF ([main.pdf](./main.pdf)) that should be created when you compile the template.
-
-### Abstract.tex
-
-Added a full stop after the date, the last full stop in the following code:
-
-``` latex
-A thesis submitted for the degree of \textit{Doctor of Philosophy}. \monthyeardate\today.
-```
-
-### Publication.tex and Main.tex, highlighting your own name in the list of publications.
-
-To highlight your own name in the list of publications we have added a macro called `boldnames` which has been defined in [./main.tex](./main.tex). This macro is then used within [./publications.tex](./publications.tex) to ensure that your name is in bold when stating the publications that you have published. You need to change the following within [./publications.tex](./publications.tex), so that you list the different ways your name is written within the cited bibliography/bib entires:
-
-``` latex
-\forcsvlist{\listadd\boldnames} % Makes the name Andrew Moore bold.
-  {{Moore, Andrew}, {Andrew, Moore}}
-```
-
-Further to ensure that your name is then not in bold for the references afterwards you need to keep the following:
-
-``` latex
-\renewcommand*{\boldnames}{}
-```
-
-Additionally to ensure that all of your authors are listed in these entries, rather the first two or three author names, and not for any reference section afterwards, we added the following command before each citation in the [publications section](./publications.tex):
-
-```
-\AtNextCitekey{\defcounter{maxnames}{99}}
-```
-
 ### Docker files
 
 We have added the following docker files:
