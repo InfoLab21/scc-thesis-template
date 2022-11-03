@@ -19,19 +19,25 @@
 
 
 %
-% Heavily based on the formatting and content of Alistair Baron's thesis https://eprints.lancs.ac.uk/id/eprint/84887/1/2011Baronphd.pdf, Kelly Widdicks's thesis https://eprints.lancs.ac.uk/id/eprint/143606/1/2019widdicksphd.pdf, and Andrew Moore's thesis (not yet publicly available but when is will be found here on his google scholar https://scholar.google.co.uk/citations?user=mJRN_SIAAAAJ&hl=en). The thesis is also somewhat based on the Cambridge thesis template: https://github.com/kks32/phd-thesis-template
+% Heavily based on the formatting and content of Alistair Baron's thesis (https://eprints.lancs.ac.uk/id/eprint/84887/1/2011Baronphd.pdf), Kelly Widdicks's thesis (https://doi.org/10.17635/lancaster/thesis/951), and Andrew Moore's thesis (https://doi.org/10.17635/lancaster/thesis/1408). The thesis is also somewhat based on the Cambridge thesis template: https://github.com/kks32/phd-thesis-template
 %
 % This was created by Andrew Moore and Alistair Baron with help from Paul Rayson, and Edward Dearden.
 %
-% Conforms with Lancaster University MANUAL OF ACADEMIC REGULATIONS AND PROCEDURES (MARP) 2019-20 for POSTGRADUATE RESEARCH. This can be found here: https://www.lancaster.ac.uk/media/lancaster-university/content-assets/documents/student-based-services/asq/marp/PGR-Regs.pdf
-% For layout information the most relevant pages of that document are pages 30 and 31 (Appendix 2)
+% Conforms with Lancaster University MANUAL OF ACADEMIC REGULATIONS AND PROCEDURES (MARP) for POSTGRADUATE RESEARCH. This can be found here: https://www.lancaster.ac.uk/media/lancaster-university/content-assets/documents/student-based-services/asq/marp/PGR-Regs.pdf
+% For layout information the most relevant pages of that document are Appendix 2.
 
-% Please check that your thesis complies with the current regulations. If not available from the above link, details will be on the PGR Moodle space (https://modules.lancaster.ac.uk/course/view.php?id=22985)
+% This template was updated in November 2022, to apply changes to the regulations made in July 2021.
+
+% Please check that your thesis complies with the current regulations.
 
 % If you have any useful updates for this template, which you think will benefit others, please make these available via github (https://github.com/InfoLab21/scc-thesis-template).
 
 
 \documentclass[twoside,12pt, a4paper]{report}
+
+% The following sets the whole document to 1.5 line spacing. The line spacing should be 1.5 according to the MARP regulations (Appendix 2), for the purpose of examiner annotation. However, some have a preference for different line spacing (e.g. single). Comment this line out for single line spacing.
+\linespread{1.5}
+
 \usepackage[paper=a4paper]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
@@ -80,7 +86,7 @@
 \newcommand\authorname{First (Middle) Last name} % Full name
 \newcommand\authordegrees{BSc (Hons), MRes} % This does not have to be filled in, but the regulations state that you should include any degrees you have.
 
-\newgeometry{left=38mm, right=25mm, top=25mm, bottom=25mm, asymmetric, includeheadfoot} % This has to come before the header and footer information
+\newgeometry{left=35mm, right=25mm, top=25mm, bottom=25mm, asymmetric, includeheadfoot} % This has to come before the header and footer information
 
 % HEADER AND FOOTER STYLE
 % https://en.wikibooks.org/wiki/LaTeX/Customizing_Page_Headers_and_Footers
@@ -150,11 +156,7 @@
 
 \input{title_page}
 
-I dedicate this thesis to someone. \textbf{(this is not required when submitting your thesis before your viva and you can add a dedication in your final thesis after your viva if you wish.)}
-
-\clearpage
-
-\input{declaration}
+%I dedicate this thesis to someone. \textbf{(this is not required when submitting your thesis before your viva and you can add a dedication in your final thesis after your viva if you wish.)}
 
 \clearpage
 
@@ -162,11 +164,15 @@ I dedicate this thesis to someone. \textbf{(this is not required when submitting
 
 \clearpage
 
-\input{publications}
+\input{acknowledgements}
 
 \clearpage
 
-\input{acknowledgements}
+\input{declaration}
+
+\clearpage
+
+\input{publications}
 
 \clearpage
 
@@ -174,13 +180,15 @@ I dedicate this thesis to someone. \textbf{(this is not required when submitting
 
 \clearpage
 
+\listoftables
+
+\clearpage
+
 \listoffigures
 
 \clearpage
 
-\listoftables
 
-\clearpage
 \pagestyle{main}
 \pagenumbering{arabic}
 
