@@ -15,7 +15,7 @@ Please check that your thesis complies with the current regulations. If not avai
 
 If you have any useful updates for this template, which you think will benefit others, please make these available via [github](https://github.com/InfoLab21/scc-thesis-template), with a pull request.
 
-Also available as an **[Overleaf template](https://www.overleaf.com/latex/templates/scc-lancaster-university-phd-thesis-template/phxsxxvnztjt)**
+Also available as an **[Overleaf template](https://www.overleaf.com/latex/templates/scc-lancaster-university-phd-thesis-template/phxsxxvnztjt)** (awaiting Overleaf to process the Version 1.1 update)
 
 ## Compile using Docker image
 
